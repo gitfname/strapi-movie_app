@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "actress_likes",
+  "info": {
+    "singularName": "actress-like",
+    "pluralName": "actress-likes",
+    "displayName": "actress-like",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "like": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "actress": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::actress.actress",
+      "inversedBy": "actress_likes"
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "actress_likes"
+    }
+  }
+}

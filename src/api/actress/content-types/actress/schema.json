@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "actresses",
+  "info": {
+    "singularName": "actress",
+    "pluralName": "actresses",
+    "displayName": "actress",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "first_name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120,
+      "minLength": 3
+    },
+    "last_name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120,
+      "minLength": 3
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "movies": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::movie.movie",
+      "inversedBy": "actresses"
+    },
+    "actress_likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::actress-like.actress-like",
+      "mappedBy": "actress"
+    }
+  }
+}

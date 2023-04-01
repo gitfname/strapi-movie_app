@@ -1,0 +1,35 @@
+
+
+POST http://localhost:1337/api/auth/local
+Content-Type: application/json
+
+{
+    "identifier": "user10@gmail.com",
+    "password": "123456"
+}
+
+
+###
+
+
+GET http://localhost:1337/api/top-ten/categories
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjgwMzcxMjk0LCJleHAiOjE2ODI5NjMyOTR9.xc0znMqf_gj7rTO94xvrSm6hTKUuIKXzfDSCojOVJtE
+
+
+
+####
+
+
+
+PUT http://localhost:1337/api/user-actions/11
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsImlhdCI6MTY4MDM3ODcwNywiZXhwIjoxNjgyOTcwNzA3fQ.3T5hMuWcI4m_iiHIyCeR2CkKcyq6gqK3KAB8JYX3Bz4
+
+{
+    "data": {
+
+        "username": "user-10",
+        "email": "user10@gmail.com"
+    }
+}

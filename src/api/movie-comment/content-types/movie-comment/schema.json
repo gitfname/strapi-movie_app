@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "movie_comments",
+  "info": {
+    "singularName": "movie-comment",
+    "pluralName": "movie-comments",
+    "displayName": "movie-comment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "string",
+      "required": true,
+      "maxLength": 500,
+      "minLength": 3
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "movie_comments"
+    },
+    "movie": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::movie.movie",
+      "inversedBy": "movie_comments"
+    },
+    "movie_comment_likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::movie-comment-like.movie-comment-like",
+      "mappedBy": "movie_comment"
+    }
+  }
+}

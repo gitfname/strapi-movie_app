@@ -1,0 +1,88 @@
+{
+  "kind": "collectionType",
+  "collectionName": "movies",
+  "info": {
+    "singularName": "movie",
+    "pluralName": "movies",
+    "displayName": "movie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 180,
+      "minLength": 3
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 1000,
+      "minLength": 10
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "movie_likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::movie-like.movie-like",
+      "mappedBy": "movie"
+    },
+    "movie_comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::movie-comment.movie-comment",
+      "mappedBy": "movie"
+    },
+    "actors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::actor.actor",
+      "mappedBy": "movies"
+    },
+    "actresses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::actress.actress",
+      "mappedBy": "movies"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "movies"
+    },
+    "imdb": {
+      "type": "decimal",
+      "default": 1,
+      "required": true,
+      "max": 10,
+      "min": 1
+    },
+    "trailer": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "backdrop": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

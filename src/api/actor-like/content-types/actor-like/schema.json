@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "actor_likes",
+  "info": {
+    "singularName": "actor-like",
+    "pluralName": "actor-likes",
+    "displayName": "actor-like",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "like": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "actor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::actor.actor",
+      "inversedBy": "actor_likes"
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "actor_likes"
+    }
+  }
+}
