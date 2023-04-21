@@ -43,6 +43,18 @@
       "relation": "oneToMany",
       "target": "api::actress-like.actress-like",
       "mappedBy": "actress"
+    },
+    "rating": {
+      "type": "integer",
+      "max": 10,
+      "min": 1,
+      "default": 1
+    },
+    "tv_shows": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tv-show.tv-show",
+      "mappedBy": "actresses"
     }
   }
 }

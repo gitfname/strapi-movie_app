@@ -51,6 +51,49 @@ async function getTopTenMovies() {
   return topItems.sort((item1, item2) => item2[1].likes - item1[1].likes).slice(0, 10)
 }
 
+async function getTopTenTvSeries() {
+  const items = await strapi.entityService.findMany("api::tv-show.tv-show", {
+    fields: ["id", "name"],
+    populate: {
+      tv_show_likes: {
+        fields: ["id"],
+        filters: {
+            like: true
+        }
+      },
+      thumbnail: {
+          fields: ["id", "name", "url"]
+      }
+    }
+  })
+
+  let _topItems = {}
+  let topItems = []
+
+  items.forEach(item => {
+      if(item.id in _topItems) {
+          _topItems[item.id] = {
+              ..._topItems[item.id],
+              "likes": (_topItems[item.id].likes + item.likes.length)
+          }
+      }
+      else {
+          _topItems[item.id] = {
+              "id": item.id,
+              "name": item.name,
+              "image": item?.thumbnail?.url || false,
+              "likes": item.tv_show_likes.length
+          }
+      }
+  })
+
+  Object.getOwnPropertyNames(_topItems).forEach(key => {
+      topItems.push([key, _topItems[key]])
+  })
+
+  return topItems.sort((item1, item2) => item2[1].likes - item1[1].likes).slice(0, 10)
+}
+
 async function getTopTenActors() {
   const items = await strapi.entityService.findMany("api::actor.actor", {
     fields: ["id", "first_name", "last_name"],
@@ -216,6 +259,10 @@ module.exports = {
       switch (collectionName) {
         case 'movies':
           ctx.body = await getTopTenMovies()
+        break;
+
+        case 'series':
+          ctx.body = await getTopTenTvSeries()
         break;
 
         case 'actors':

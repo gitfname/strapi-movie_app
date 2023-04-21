@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "movie_comment_replies",
+  "info": {
+    "singularName": "movie-comment-reply",
+    "pluralName": "movie-comment-replies",
+    "displayName": "movie_comment_reply"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "text",
+      "required": true,
+      "maxLength": 400,
+      "minLength": 3
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "movie_comment_replies"
+    },
+    "movie_comment": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::movie-comment.movie-comment",
+      "inversedBy": "movie_comment_replies"
+    },
+    "movie_comment_reply_likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::movie-comment-reply-like.movie-comment-reply-like",
+      "mappedBy": "movie_comment_reply"
+    }
+  }
+}

@@ -110,6 +110,48 @@
       "relation": "oneToMany",
       "target": "api::actor-like.actor-like",
       "mappedBy": "owner"
+    },
+    "movie_comment_replies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::movie-comment-reply.movie-comment-reply",
+      "mappedBy": "owner"
+    },
+    "movie_comment_reply_likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::movie-comment-reply-like.movie-comment-reply-like",
+      "mappedBy": "owner"
+    },
+    "tv_show_likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tv-show-like.tv-show-like",
+      "mappedBy": "owner"
+    },
+    "tv_show_comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tv-show-comment.tv-show-comment",
+      "mappedBy": "owner"
+    },
+    "tv_show_comment_likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tv-show-comment-like.tv-show-comment-like",
+      "mappedBy": "owner"
+    },
+    "tv_show_comment_replies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tv-show-comment-reply.tv-show-comment-reply",
+      "mappedBy": "owner"
+    },
+    "tv_show_comment_reply_likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tv-show-comment-reply-like.tv-show-comment-reply-like",
+      "mappedBy": "owner"
     }
   }
 }

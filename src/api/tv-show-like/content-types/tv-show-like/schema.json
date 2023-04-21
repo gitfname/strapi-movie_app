@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tv_show_likes",
+  "info": {
+    "singularName": "tv-show-like",
+    "pluralName": "tv-show-likes",
+    "displayName": "tv_show_like"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "like": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "tv_show_likes"
+    },
+    "tv_show": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tv-show.tv-show",
+      "inversedBy": "tv_show_likes"
+    }
+  }
+}

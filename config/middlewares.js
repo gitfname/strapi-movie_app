@@ -1,4 +1,5 @@
 module.exports = [
+  'global::checkSecretKey',
   'strapi::errors',
   'strapi::security',
   'strapi::cors',

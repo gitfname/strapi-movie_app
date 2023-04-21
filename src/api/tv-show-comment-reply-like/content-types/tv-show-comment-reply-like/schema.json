@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tv_show_comment_reply_likes",
+  "info": {
+    "singularName": "tv-show-comment-reply-like",
+    "pluralName": "tv-show-comment-reply-likes",
+    "displayName": "tv_show_comment_reply_like"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "like": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "tv_show_comment_reply_likes"
+    },
+    "tv_show_comment_reply": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tv-show-comment-reply.tv-show-comment-reply",
+      "inversedBy": "tv_show_comment_reply_likes"
+    }
+  }
+}

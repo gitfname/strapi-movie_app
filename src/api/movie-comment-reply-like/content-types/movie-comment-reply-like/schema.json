@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "movie_comment_reply_likes",
+  "info": {
+    "singularName": "movie-comment-reply-like",
+    "pluralName": "movie-comment-reply-likes",
+    "displayName": "movie_comment_reply_like"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "like": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "movie_comment_reply_likes"
+    },
+    "movie_comment_reply": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::movie-comment-reply.movie-comment-reply",
+      "inversedBy": "movie_comment_reply_likes"
+    }
+  }
+}

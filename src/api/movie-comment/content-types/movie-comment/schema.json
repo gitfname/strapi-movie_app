@@ -35,6 +35,12 @@
       "relation": "oneToMany",
       "target": "api::movie-comment-like.movie-comment-like",
       "mappedBy": "movie_comment"
+    },
+    "movie_comment_replies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::movie-comment-reply.movie-comment-reply",
+      "mappedBy": "movie_comment"
     }
   }
 }

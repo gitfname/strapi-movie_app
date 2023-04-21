@@ -4,7 +4,8 @@
   "info": {
     "singularName": "category",
     "pluralName": "categories",
-    "displayName": "category"
+    "displayName": "category",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -22,6 +23,18 @@
       "relation": "manyToMany",
       "target": "api::movie.movie",
       "inversedBy": "categories"
+    },
+    "popularity": {
+      "type": "integer",
+      "default": 1,
+      "max": 10,
+      "min": 1
+    },
+    "tv_shows": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tv-show.tv-show",
+      "mappedBy": "categories"
     }
   }
 }

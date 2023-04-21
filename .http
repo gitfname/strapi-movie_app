@@ -33,3 +33,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsImlhdCI6M
         "email": "user10@gmail.com"
     }
 }
+
+
+
+####
+
+POST http://localhost:1337/api/movies/3/comments/4/report
+Content-Type: application/json
+
+{
+    "name": "ali"
+}
+
+
+###
+
+GET http://localhost:1337/api/top-ten/categories

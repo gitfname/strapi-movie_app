@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tv_show_comments",
+  "info": {
+    "singularName": "tv-show-comment",
+    "pluralName": "tv-show-comments",
+    "displayName": "tv_show_comment"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "text",
+      "required": true,
+      "maxLength": 400,
+      "minLength": 3
+    },
+    "tv_show": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tv-show.tv-show",
+      "inversedBy": "tv_show_comments"
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "tv_show_comments"
+    },
+    "tv_show_comment_likes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tv-show-comment-like.tv-show-comment-like",
+      "mappedBy": "tv_show_comment"
+    },
+    "tv_show_comment_replies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tv-show-comment-reply.tv-show-comment-reply",
+      "mappedBy": "tv_show_comment"
+    }
+  }
+}
