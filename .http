@@ -82,13 +82,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxN
 ####
 
 
-POST http://localhost:1337/api/tv-show-comment-reply-likes
+POST http://localhost:1337/api/tv-show-likes
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsImlhdCI6MTY4MjI1NTA3MSwiZXhwIjoxNjg0ODQ3MDcxfQ.y218vxaJ4MPXOc1lxT-54wRqt0wK841ktyfrRkBWwTw
 
 {
     "data": {
         "like": true,
-        "tv_show_comment_reply": 1
+        "tv_show": 2
     }
 }
