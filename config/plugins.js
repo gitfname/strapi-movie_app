@@ -1,8 +1,4 @@
 module.exports = {
-    "generate-data": {
-        enabled: true,
-    },
-    
     "upload": {
         config: {
           provider: 'cloudinary',
